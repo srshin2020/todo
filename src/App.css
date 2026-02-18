@@ -5,16 +5,55 @@
   text-align: center;
 }
 
-.todo-item {
-  list-style: none;
-  margin: 10px 0;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  height: 100vh;
+  width: 300px;
+
+}
+
+.app-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.todo-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+  width: 100%;
 }
 
 .todo-input {
-  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  height: 100%;
+  width: 100%;
+}
+
+.todo-button {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-left: 10px;
+  height: 100%;
+}
+
+.todo-list {
+  width: 100%;
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+
+.todo-item {
+  list-style: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  margin: 10px 0 10px 0
 }
