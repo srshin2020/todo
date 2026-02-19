@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import './App.css';
-import InputHeader from './app/InputHeader';
+import InputContainer from './app/InputContainer';
 import TodoList from './app/TodoList';
+import AppTitle from './app/AppTitle';
 
-function App() {
+export default function App() {
     const [todoList, setTodoList] = useState<string[]>([]);
     const [todo, setTodo] = useState('');
 
@@ -13,9 +14,9 @@ function App() {
     };
     return (
         <div className="app-container">
-            <h1 className="app-title">TODO LIST</h1>
+            <AppTitle />
             <TodoList todos={todoList} />
-            <InputHeader
+            <InputContainer
                 onAddTodoList={handleAddTodoList}
                 setTodo={setTodo}
                 todo={todo}
@@ -23,5 +24,3 @@ function App() {
         </div>
     );
 }
-
-export default App;

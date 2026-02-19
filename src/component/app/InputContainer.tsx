@@ -1,7 +1,7 @@
 import { type ChangeEvent, type KeyboardEvent } from 'react';
-import './InputHeader.css';
+import './InputContainer.css';
 
-function InputHeader({
+export default function InputContainer({
     onAddTodoList,
     setTodo,
     todo,
@@ -20,20 +20,18 @@ function InputHeader({
         }
     };
     return (
-        <div className="todo-container">
+        <div className="input-container">
             <input
-                className="todo-input"
+                className="input-field"
                 onKeyDown={handleKeyDown}
                 onChange={handleChangeTodo}
                 value={todo}
                 type="text"
                 placeholder="Add a new todo"
             />
-            <button className="todo-button" onClick={onAddTodoList}>
+            <button className="input-button" onClick={onAddTodoList}>
                 Add
             </button>
         </div>
     );
 }
-
-export default InputHeader;

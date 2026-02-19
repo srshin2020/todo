@@ -1,6 +1,6 @@
 import './TodoList.css';
 
-function TodoList({ todos }: { todos: string[] }) {
+export default function TodoList({ todos }: { todos: string[] }) {
     return (
         <ul className="todo-list">
             {todos.map((todo, index) => (
@@ -11,5 +11,3 @@ function TodoList({ todos }: { todos: string[] }) {
         </ul>
     );
 }
-
-export default TodoList;
