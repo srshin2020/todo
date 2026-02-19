@@ -8,8 +8,7 @@ export default function SearchBar({
     setSearchTerm: (searchTerm: string) => void;
 }) {
     const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const newSearchTerm = e.target.value;
-        setSearchTerm(newSearchTerm);
+        setSearchTerm(e.target.value);
     };
 
     return (

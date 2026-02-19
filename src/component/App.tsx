@@ -21,7 +21,8 @@ export default function App() {
     }, [todoList, searchTerm]); // todoList나 searchTerm이 변경될 때만 재계산
 
     const handleAddTodoList = () => {
-        setTodoList([...todoList, todo]);
+        if (!todo.trim()) return;
+        setTodoList((prevTodos) => [...prevTodos, todo]);
         setTodo('');
     };
 
