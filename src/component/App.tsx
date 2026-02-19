@@ -14,12 +14,12 @@ function App() {
     return (
         <div className="app-container">
             <h1 className="app-title">TODO LIST</h1>
+            <TodoList todos={todoList} />
             <InputHeader
                 onAddTodoList={handleAddTodoList}
                 setTodo={setTodo}
                 todo={todo}
             />
-            <TodoList todos={todoList} />
         </div>
     );
 }
