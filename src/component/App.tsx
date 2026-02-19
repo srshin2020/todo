@@ -30,7 +30,7 @@ export default function App() {
         <div className="app-container">
             <AppTitle />
             <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-            <TodoList todos={filteredTodoList} />
+            <TodoList todos={filteredTodoList} setTodoList={setTodoList} />
             <InputContainer
                 onAddTodoList={handleAddTodoList}
                 setTodo={setTodo}

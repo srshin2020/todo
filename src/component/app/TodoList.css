@@ -6,8 +6,20 @@
 
 .todo-item {
     list-style: none;
-    border: 1px solid #ccc;
-    border-radius: 5px;
     width: 100%;
     margin: 10px 0 10px 0;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.todo-title {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex: 1;
+}
+
+.todo-delete-button {
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
