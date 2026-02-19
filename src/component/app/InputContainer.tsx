@@ -1,4 +1,3 @@
-import { type ChangeEvent, type KeyboardEvent } from 'react';
 import './InputContainer.css';
 
 export default function InputContainer({
@@ -10,11 +9,11 @@ export default function InputContainer({
     setTodo: (todo: string) => void;
     todo: string;
 }) {
-    const handleChangeTodo = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleChangeTodo = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTodo(e.target.value);
     };
 
-    const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {
             onAddTodoList();
         }
