@@ -2,16 +2,11 @@ import './TodoList.css';
 
 export default function TodoList({
     todos,
-    setTodoList: setTodoList,
+    handleDelete,
 }: {
     todos: string[];
-    setTodoList: React.Dispatch<React.SetStateAction<string[]>>; // ✅ 수정
+    handleDelete: (index: number) => void;
 }) {
-    const handleDelete = (index: number) => {
-        setTodoList((prevTodos: string[]) =>
-            prevTodos.filter((_, i) => i !== index),
-        );
-    };
     return (
         <ul className="todo-list">
             {todos.map((todo, index) => (

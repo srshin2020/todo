@@ -20,19 +20,27 @@ export default function App() {
         );
     }, [todoList, searchTerm]); // todoList나 searchTerm이 변경될 때만 재계산
 
-    const handleAddTodoList = () => {
+    const handleAddTodo = () => {
         if (!todo.trim()) return;
         setTodoList((prevTodos) => [...prevTodos, todo]);
         setTodo('');
+    };
+    const handleDeleteTodo = (index: number) => {
+        setTodoList((prevTodos: string[]) =>
+            prevTodos.filter((_, i) => i !== index),
+        );
     };
 
     return (
         <div className="app-container">
             <AppTitle />
             <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-            <TodoList todos={filteredTodoList} setTodoList={setTodoList} />
+            <TodoList
+                todos={filteredTodoList}
+                handleDelete={handleDeleteTodo}
+            />
             <InputContainer
-                onAddTodoList={handleAddTodoList}
+                onAddTodoList={handleAddTodo}
                 setTodo={setTodo}
                 todo={todo}
             />
