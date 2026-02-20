@@ -4,6 +4,7 @@ import InputContainer from './app/InputContainer';
 import TodoList from './app/TodoList';
 import AppTitle from './app/AppTitle';
 import SearchBar from './app/SearchBar';
+import TodoCount from './app/TodoCount';
 
 export interface Todo {
     id: number;
@@ -65,6 +66,7 @@ export default function App() {
     return (
         <div className="app-container">
             <AppTitle />
+            <TodoCount todoList={todoList} />
             <SearchBar searchTerm={searchText} setSearchTerm={setSearchText} />
             <TodoList
                 todoList={filteredTodoList}
