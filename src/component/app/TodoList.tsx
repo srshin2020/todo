@@ -1,20 +1,32 @@
+import type { Todo } from '../App';
 import './TodoList.css';
 
 export default function TodoList({
-    todos,
+    todoList,
     handleDelete,
+    handleCheck,
 }: {
-    todos: string[];
+    todoList: Todo[];
     handleDelete: (index: number) => void;
+    handleCheck: (index: number) => void;
 }) {
     return (
         <ul className="todo-list">
-            {todos.map((todo, index) => (
-                <li className="todo-item" key={index}>
-                    <div className="todo-title">{todo}</div>
+            {todoList.map((todo) => (
+                <li className="todo-item" key={todo.id}>
+                    <input
+                        onChange={() => handleCheck(todo.id)}
+                        className="todo-checkbox"
+                        type="checkbox"
+                    />
+                    <div
+                        className={`todo-title${todo.completed ? ' completed' : ''}`}
+                    >
+                        {todo.text}
+                    </div>
                     <button
                         className="todo-delete-button"
-                        onClick={() => handleDelete(index)}
+                        onClick={() => handleDelete(todo.id)}
                     >
                         삭제
                     </button>
