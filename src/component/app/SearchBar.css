@@ -1,5 +1,18 @@
+.search-bar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
 .search-bar {
     border: 1px solid #ccc;
     height: 2rem;
     width: 100%;
+}
+
+.sort-button {
+    border: 1px solid #ccc;
+    height: 100%;
+    border-radius: 0.5rem;
 }

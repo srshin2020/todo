@@ -45,6 +45,21 @@ export default function App() {
         setTodoText('');
     };
 
+    const sortBy = (sortBy: string) => {
+        setTodoList((prevTodos: Todo[]) => {
+            // 원본 배열을 복사하여 정렬
+            // [...prevTodos] 배열을 복사하여 정렬
+            const sortedTodos = [...prevTodos].sort((a, b) => {
+                if (sortBy === 'asc') {
+                    return a.text.localeCompare(b.text);
+                } else {
+                    return b.text.localeCompare(a.text);
+                }
+            });
+            return sortedTodos;
+        });
+    };
+
     const deleteTodo = (id: number) => {
         // todoList에서 해당 id의 todo를 제거
         setTodoList((prevTodos: Todo[]) =>
@@ -67,7 +82,11 @@ export default function App() {
         <div className="app-container">
             <AppTitle />
             <TodoCount todoList={todoList} />
-            <SearchBar searchTerm={searchText} setSearchTerm={setSearchText} />
+            <SearchBar
+                searchText={searchText}
+                setSearchText={setSearchText}
+                sortBy={sortBy}
+            />
             <TodoList
                 todoList={filteredTodoList}
                 handleDelete={deleteTodo}

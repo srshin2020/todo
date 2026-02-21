@@ -1,23 +1,26 @@
 import './SearchBar.css';
 
 export default function SearchBar({
-    searchTerm,
-    setSearchTerm,
+    searchText: searchText,
+    setSearchText: setSearchText,
+    sortBy: sortBy,
 }: {
-    searchTerm: string;
-    setSearchTerm: (searchTerm: string) => void;
+    searchText: string;
+    setSearchText: (searchText: string) => void;
+    sortBy: (sortBy: string) => void;
 }) {
-    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchTerm(e.target.value);
-    };
-
     return (
-        <input
-            className="search-bar"
-            type="text"
-            placeholder="Search"
-            value={searchTerm}
-            onChange={handleSearch}
-        />
+        <div className="search-bar-container">
+            <input
+                className="search-bar"
+                type="text"
+                placeholder="Search"
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
+            />
+            <button className="sort-button" onClick={() => sortBy('asc')}>
+                Sort
+            </button>
+        </div>
     );
 }
