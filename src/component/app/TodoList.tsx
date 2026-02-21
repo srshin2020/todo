@@ -9,8 +9,8 @@ export default function TodoList({
     handleEdit,
 }: {
     todoList: Todo[];
-    handleDelete: (index: number) => void;
-    handleCheck: (index: number) => void;
+    handleDelete: (id: number) => void;
+    handleCheck: (id: number) => void;
     handleEdit: (id: number, text: string) => void;
 }) {
     return (
@@ -21,12 +21,9 @@ export default function TodoList({
                         onChange={() => handleCheck(todo.id)}
                         className="todo-checkbox"
                         type="checkbox"
+                        checked={todo.completed}
                     />
-                    <TodoTitle
-                        todo={todo}
-                        todoList={todoList}
-                        handleEdit={handleEdit}
-                    />
+                    <TodoTitle todo={todo} handleEdit={handleEdit} />
                     <button
                         className="todo-delete-button"
                         onClick={() => handleDelete(todo.id)}

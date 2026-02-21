@@ -4,11 +4,9 @@ import './TodoTitle.css';
 
 export default function TodoTitle({
     todo,
-    todoList,
     handleEdit,
 }: {
     todo: Todo;
-    todoList: Todo[];
     handleEdit: (id: number, text: string) => void;
 }) {
     const [editingId, setEditingId] = useState<number | null>(null);
@@ -23,7 +21,7 @@ export default function TodoTitle({
     // 수정 버튼 클릭 시 수정 모달 창 띄우기
     const startEdit = (id: number) => {
         setEditingId(id);
-        setEditingText(todoList.find((todo) => todo.id === id)?.text || '');
+        setEditingText(todo.text);
     };
     const handleKeyDown = (
         id: number,

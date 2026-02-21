@@ -1,9 +1,9 @@
 import './SearchBar.css';
 
 export default function SearchBar({
-    searchText: searchText,
-    setSearchText: setSearchText,
-    sortBy: sortBy,
+    searchText,
+    setSearchText,
+    sortBy,
 }: {
     searchText: string;
     setSearchText: (searchText: string) => void;
