@@ -13,18 +13,6 @@
     justify-content: space-between;
 }
 
-.todo-title {
-    border: 1px solid #ccc;
-    text-decoration: none;
-    border-radius: 5px;
-    flex: 1;
-    /* ✅ input과 div 모두 동일하게 */
-    padding: 0px;
-    font-size: inherit;
-    font-family: inherit;
-    line-height: inherit;
-}
-
 .todo-title.completed {
     text-decoration: line-through;
     opacity: 0.6;
