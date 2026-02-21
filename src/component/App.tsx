@@ -6,6 +6,7 @@ import AppTitle from './app/AppTitle';
 import SearchBar from './app/SearchBar';
 import TodoCount from './app/TodoCount';
 import type { Todo } from '../type/Todo';
+import { idGenerator } from '../util/IdGenerator';
 
 export default function App() {
     // todoList 상태 관리
@@ -28,15 +29,20 @@ export default function App() {
     // 추가 버튼 클릭 시 todoList에 추가
     const addTodo = () => {
         if (!todoText.trim()) return;
+        const newId = idGenerator.generateId();
         // todoList에 추가
-        setTodoList((prevTodos: Todo[]) => [
-            ...prevTodos,
-            {
-                id: todoList.length + 1,
-                text: todoText,
-                completed: false,
-            },
-        ]);
+        setTodoList((prevTodos: Todo[]) => {
+            const newTodoList = [
+                ...prevTodos,
+                {
+                    id: newId,
+                    text: todoText,
+                    completed: false,
+                },
+            ];
+            console.log(newTodoList);
+            return newTodoList;
+        });
         // todoText 초기화
         setTodoText('');
     };
@@ -72,7 +78,6 @@ export default function App() {
             const newTodoList = prevTodos.map((todo) =>
                 todo.id === id ? { ...todo, completed: !todo.completed } : todo,
             );
-            console.log(newTodoList);
             return newTodoList;
         });
     };

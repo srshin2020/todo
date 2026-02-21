@@ -13,7 +13,6 @@ export default function TodoTitle({
     const [editingText, setEditingText] = useState<string>('');
 
     const stopEdit = (id: number, text: string) => {
-        console.log('stopEdit', id, text);
         setEditingId(null);
         handleEdit(id, text);
     };
