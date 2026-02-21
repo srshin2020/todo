@@ -1,4 +1,4 @@
-import type { Todo } from '../App';
+import type { Todo } from '../../type/Todo';
 import './TodoList.css';
 
 export default function TodoList({

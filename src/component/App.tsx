@@ -5,12 +5,7 @@ import TodoList from './app/TodoList';
 import AppTitle from './app/AppTitle';
 import SearchBar from './app/SearchBar';
 import TodoCount from './app/TodoCount';
-
-export interface Todo {
-    id: number;
-    text: string;
-    completed: boolean;
-}
+import type { Todo } from '../type/Todo';
 
 export default function App() {
     // todoList 상태 관리
