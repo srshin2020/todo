@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './InputContainer.css';
 
 export default function InputContainer({
@@ -9,12 +10,14 @@ export default function InputContainer({
     setTodo: (todo: string) => void;
     todo: string;
 }) {
+    const [isComposing, setIsComposing] = useState(false);
+
     const handleChangeTodo = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTodo(e.target.value);
     };
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-        if (e.key === 'Enter') {
+        if (e.key === 'Enter' && !isComposing) {
             onAddTodoList();
         }
     };
@@ -24,6 +27,8 @@ export default function InputContainer({
                 className="input-field"
                 onKeyDown={handleKeyDown}
                 onChange={handleChangeTodo}
+                onCompositionStart={() => setIsComposing(true)}
+                onCompositionEnd={() => setIsComposing(false)}
                 value={todo}
                 type="text"
                 placeholder="Add a new todo"
